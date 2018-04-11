@@ -50,6 +50,11 @@ const handlers = {
         } else { // FulfillmentCodeHook
             this.emit(':close', 'Fulfilled',this.t('THANKS_MESSAGE'));
         }
+    },
+    'Unhandled': function () {
+        // 処理されていないハンドラーはエラーとする
+        const intent = this.event.currentIntent;
+        throw new Error(`${intent.name} is not supported`);
     }
 }
 ```
