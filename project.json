@@ -1,9 +1,0 @@
-{
-  "name": "lex-sdk",
-  "description": "",
-  "memory": 128,
-  "timeout": 5,
-  "role": "arn:aws:iam::439028474478:role/lex-sdk_lambda_function",
-  "handler":"index.handler",
-  "environment": {}
-}
