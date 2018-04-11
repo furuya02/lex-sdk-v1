@@ -15,9 +15,6 @@ $ npm install lex-sdk
 var Lex = require('lex-sdk');
 
 exports.handler = function(event, context, callback) {
-
-    console.log(JSON.stringify(event));
-
     var lex = Lex.handler(event, context);
     lex.resources = languageStrings;
     lex.registerHandlers(handlers);
