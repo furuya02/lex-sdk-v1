@@ -27,8 +27,8 @@ exports.handler = function(event, context, callback) {
 const languageStrings = {
   'en-US': {
     'translation': {
-      'HELLO_MESSAGE' : 'hello',
-      'WELCOME_MESSAGE' : 'welcome！'
+      'WORNG_MESSAGE' : 'Slot value is wrong',
+      'THANKS_MESSAGE' : 'Thanks, your order.'
     }
   }
 };
@@ -41,14 +41,14 @@ const handlers = {
 
             if( /*スロット変更したい場合*/ ) {
                 slots[`name`] = null;
-                this.emit(':elicitSlot', intent.name, slots,violatedSlot, message);
+                this.emit(':elicitSlot', intent.name, slots,violatedSlot, this.t('WORNG_MESSAGE'));
             } else {
                 // slot値を変更する場合
                 //this.emit(':delegate', slots);
                 this.emit(':delegate');
             }
         } else { // FulfillmentCodeHook
-            this.emit(':close', 'Fulfilled',`Thanks, your order.`);
+            this.emit(':close', 'Fulfilled',this.t('THANKS_MESSAGE'));
         }
     }
 }
